@@ -3,6 +3,8 @@
   --pink-dark: #000000;
   --pink-mid: #e91e63;
   --pink-light: #ff69b4;
+  --pink-medium: #a53e71;
+  --gray: #ffe5f5;
   --text: #000000;
   --muted: #6d6d6d;
   --bg: #f887bf;
@@ -55,7 +57,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #ffe5f5;
+  color: var(--gray);
 }
 
 body.home nav {
@@ -115,15 +117,17 @@ body.home {
   letter-spacing: 0em;
   color: #ff9acd;
   margin: 0;
-  font-weight: 300;
+  font-weight: 350;
   font-family: "Mea Culpa", cursive;
-
   text-shadow:
     0 0 5px #ff69b4,
     0 0 10px #ff69b4,
     0 0 15px #ff69b4;
-  -webkit-text-stroke: 0.5px #e2549b;
   line-height: 0.95;
+}
+
+br.mobile-break {
+  display: none;
 }
 
 h1 {
@@ -226,8 +230,7 @@ p {
   font-weight: bold;
 }
 .post-list a:hover {
-  color: var(--olive-mid);
-  text-decoration: underline;
+  color: var(--gray);
 }
 .post-date {
   font-size: 0.85rem;
@@ -343,14 +346,19 @@ p {
   }
 
   .hero {
-    align-items: center;
-    padding: 4rem 1rem 0rem;
+    align-items: flex-end;
+    padding: 4rem 1rem 12rem;
     min-height: calc(100vh - 80px);
   }
 
   .hero h1 {
-    font-size: clamp(3rem, 18vw, 5.5rem);
+    font-size: clamp(7rem, 18vw, 5.5rem);
     max-width: 100%;
+    white-space: normal;
+  }
+
+  br.mobile-break {
+    display: block;
   }
 
   .about-section,

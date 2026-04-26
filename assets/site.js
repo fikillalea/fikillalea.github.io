@@ -2,10 +2,10 @@
 const posts = [
   {
     slug: "sample-post",
-    title: "Sample Writing Post",
-    date: "30 March 2026",
+    title: "Writing Sample", // insert the title of the post here
+    date: "30 March 2026", // insert the date of the post here
     file: "posts/sample-post.md",
-    excerpt: "A short sentence or two for this post.",
+    excerpt: "", // insert a short excerpt here to show on the post list page
   },
 ];
 
