@@ -39,7 +39,7 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0.75rem 1.2rem;
   background: rgba(255, 255, 255, 0);
   font-family: "Helvetica", sans-serif;
 }
@@ -73,9 +73,9 @@ nav .site-title {
 
 /* === MAIN CONTENT === */
 main {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1.25rem;
   position: relative;
   min-height: 70vh;
 }
@@ -94,6 +94,129 @@ body.home {
 
 .hero-area nav {
   background: rgba(0, 0, 0, 0.35);
+}
+
+.about-hero {
+  position: relative;
+  min-height: 60vh;
+  width: 100%;
+  margin: 0;
+  background: url("/assets/field.JPG") center / cover no-repeat;
+  background-position: center 60%;
+  color: #ffffff;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: center;
+  padding-top: 4rem;
+}
+
+.about-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.about-hero nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.about-hero nav a {
+  color: #fd8fc6;
+}
+
+.about-hero-copy {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 12rem auto 0;
+  padding: 0 1.25rem;
+  align-self: flex-start;
+}
+
+.about-hero-copy p {
+  margin: 0;
+  line-height: 1.6;
+  color: #ffffff;
+}
+.about-hero-copy h1 {
+  max-width: none;
+  white-space: nowrap;
+  font-size: clamp(4rem, 10vw, 8rem);
+  letter-spacing: 0em;
+  color: #ff9acd;
+  margin: 0;
+  font-weight: 350;
+  font-family: "Mea Culpa", cursive;
+  text-shadow:
+    0 0 5px #ff69b4,
+    0 0 10px #ff69b4,
+    0 0 15px #ff69b4;
+  line-height: 0.95;
+  text-align: left;
+}
+
+/* Mobile adjustments: shorter hero and show more top crop */
+@media (max-width: 900px) {
+  .about-hero {
+    /* slightly taller but still compact on mobile; crop more top */
+    min-height: 22vh;
+    background-position: center 45%;
+    padding-top: 1rem;
+  }
+
+  .about-hero-copy {
+    margin-top: 2rem;
+    padding-left: 1rem;
+  }
+}
+
+/* On very wide screens keep the larger right offset the user preferred */
+@media (min-width: 1400px) {
+  .about-hero-copy {
+    margin: 12rem 25rem 0;
+  }
+}
+
+.writing-list h2 {
+  font-size: clamp(2rem, 3vw, 3rem);
+  letter-spacing: 0.12em;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cv-download {
+  margin-top: 3rem;
+  text-align: left;
+}
+
+.cv-button {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background-color: #f5d2e7;
+  color: #000000;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  transition: background-color 0.3s ease;
+}
+
+.cv-button:hover {
+  background-color: #cea2c0;
+}
+
+/* ensure section-specific link styles don't override the button's no-underline */
+.about-section .cv-button {
+  text-decoration: none !important;
+  color: #000000 !important;
 }
 
 .hero {
@@ -161,9 +284,9 @@ p {
 .about-section,
 .contact-info {
   color: #000000;
-  padding: 1.5rem;
+  padding: 1.25rem;
   margin: 3rem auto;
-  max-width: 760px;
+  max-width: 980px;
 }
 
 .about-section h2,
@@ -175,7 +298,6 @@ p {
 .about-section a,
 .contact-info a {
   color: #000000;
-  text-decoration: underline;
 }
 
 .about-section a:hover,
@@ -200,8 +322,8 @@ p {
 
 .contact-info {
   padding: 1rem 1.2rem;
-  margin: 2rem auto;
-  max-width: 760px;
+  margin: 3rem auto;
+  max-width: 980px;
 }
 
 .contact-info h2 {
@@ -211,80 +333,36 @@ p {
 
 .contact-info a {
   color: var(--pink-dark);
-  text-decoration: underline;
 }
 
-/* === WRITING LIST === */
-.post-list {
-  list-style: none;
-  padding: 1rem 1.5rem;
-}
-.post-list li {
-  border-bottom: 1px solid #ddd;
-  padding: 1.2rem 0;
-}
-.post-list a {
-  font-size: 1.2rem;
-  color: var(--pink-dark);
+.writing-list a {
+  display: block;
+  color: #000000;
   text-decoration: none;
-  font-weight: bold;
-}
-.post-list a:hover {
-  color: var(--gray);
-}
-.post-date {
-  font-size: 0.85rem;
-  color: var(--muted);
-  margin-top: 0.2rem;
-}
-.post-excerpt {
-  margin-top: 0.4rem;
-  color: #000000;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
 }
 
-/* === CV === */
-.cv-section {
-  margin-bottom: 2.5rem;
-  font-family: Arial, sans-serif;
-  padding: 1rem 1.5rem;
-}
-.cv-item {
-  display: flex;
-  justify-content: space-between;
-  font-weight: bold;
-}
-.cv-item span {
-  font-weight: normal;
-  color: #000000;
-  font-size: 0.9rem;
-}
-
-/* === WRITING POST === */
-.post-content {
-  padding: 1.3rem;
-}
-.post-content h2 {
-  margin-top: 2rem;
-}
-.post-content p {
-  margin-bottom: 1.2rem;
-  color: #000000;
-}
-.post-content a {
+.writing-list a:hover {
   color: var(--pink-mid);
-  text-decoration: underline;
 }
-.post-content a:hover {
-  color: var(--pink-dark);
+
+.writing-list img {
+  width: 60%;
+  max-width: 400px;
+  height: auto;
+  display: block;
+  margin: 2rem 0;
 }
 
 /* === FOOTER === */
 .site-footer {
   text-align: center;
-  padding: 2rem;
+  padding: 1.5rem;
   font-size: 0.85rem;
   color: var(--muted);
-  margin-top: 4rem;
+  margin-top: 2.5rem;
   border-top: 1px solid #eee;
 }
 
@@ -297,7 +375,7 @@ p {
   nav {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.75rem;
+    gap: 0.7rem;
     padding: 1rem 1rem;
   }
 
@@ -319,8 +397,8 @@ p {
   .contact-info,
   .cv-section,
   .post-content {
-    padding: 1.25rem;
-    margin: 2rem 1rem;
+    padding: 1rem;
+    margin: 2rem 0.75rem;
     max-width: 100%;
   }
 
@@ -334,6 +412,22 @@ p {
 @media (max-width: 600px) {
   body {
     font-size: 0.95rem;
+  }
+  .about-hero-copy h1 {
+    max-width: none;
+    white-space: nowrap;
+    font-size: clamp(2rem, 10vw, 8rem);
+    letter-spacing: 0em;
+    color: #ff9acd;
+    margin: 4rem 3rem 0;
+    font-weight: 350;
+    font-family: "Mea Culpa", cursive;
+    text-shadow:
+      0 0 5px #ff69b4,
+      0 0 10px #ff69b4,
+      0 0 15px #ff69b4;
+    line-height: 0.95;
+    text-align: left;
   }
 
   nav {
@@ -365,7 +459,7 @@ p {
   .contact-info,
   .cv-section,
   .post-content {
-    margin: 1.5rem 0.75rem;
+    margin: 1.5rem 0.65rem;
   }
 
   .site-footer {
